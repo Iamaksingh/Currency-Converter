@@ -1,79 +1,126 @@
-*{
+* {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-body{
-    background-color: rgb(229,229,229);
-}
-
-.heading{
-    color: rgb(252,163,17);
-}
-
-.app{
-    color: black;
-    background-color: rgb(20, 33, 61);
-    display: flex;
-    flex-direction: column;
-    border: 1px solid black;
-    max-width: 50%;
-    height: 60vh;
-    border-radius: 20px;
-    margin:auto;    
-    text-align: center;
-    margin-top: 10rem;
-    align-items: center;
-}
-
-.amount_holder{
-    margin-top: 5vh;
-    display: flex;
-    justify-content: space-between;
-    width: 80%;
-}
-
-.amount{
-    color: black;
-    height: 5vh;
-    font-size: larger;
-    border-radius: 1rem;
-    padding-left:10px;
-}
-
-.select_items{
-    display: flex;
-    width: 80%;
-    border-radius: 20px;
-    margin-top:5vh; 
-    margin-bottom:5vh;   
-    justify-content: space-between;
-    padding: 20px;
-    align-items: center;
-    color: black;
-}
-
-.country{
+body {
+    background-color: rgb(229, 229, 229);
     display: flex;
     justify-content: center;
-    margin: auto;
-    color: black;
+    align-items: center;
+    height: 100vh;
 }
 
-.options{
-    width: 80px;
+.container {
+    width: 90%; /* Default width for smaller screens */
+    max-width: 500px; /* Prevent the content from getting too wide */
+}
+
+.app {
+    background-color: rgb(20, 33, 61);
+    color: black;
+    border: 1px solid black;
+    border-radius: 20px;
+    padding: 2rem;
+    text-align: center;
+    overflow: hidden; /* Prevent children from overflowing */
+}
+
+.heading {
+    color: rgb(252, 163, 17);
+    margin-bottom: 1rem;
+}
+
+.amount_holder {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    width: 100%; /* Ensure it doesn’t exceed the container width */
+    flex-wrap: wrap; /* Allows wrapping on smaller screens */
+}
+
+.amount {
+    flex: 1; /* Distributes the available space equally */
     height: 45px;
-    margin-top: 11px;
-    color: black;
-    border-radius: 10px;
+    font-size: larger;
+    border-radius: 1rem;
+    padding-left: 10px;
+    min-width: 120px; /* Prevents shrinking too small */
 }
 
-.submit_button{
-    height: 5vh;
-    width: 30%;
+.select_items {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap; /* Allows wrapping on smaller screens */
+}
+
+.country {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.options {
+    width: 100%;
+    height: 45px;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.submit_button {
+    width: 100%; /* Full width for consistency */
+    height: 45px;
     border-radius: 15px;
     color: rgb(20, 33, 61);
-    background-color: rgb(252,163,17);
+    background-color: rgb(252, 163, 17);
     font-size: large;
     font-weight: 600;
     border: 3px solid black;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.submit_button:hover {
+    background-color: rgb(255, 190, 60);
+    transform: scale(1.05);
+}
+
+/* Media Queries for Smaller Screens */
+@media (max-width: 768px) {
+    .amount_holder {
+        flex-direction: column;
+    }
+
+    .select_items {
+        flex-direction: column;
+    }
+
+    .fa-arrows-h {
+        font-size: 36px;
+        margin: 1rem 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .app {
+        padding: 1.5rem;
+    }
+
+    .heading {
+        font-size: 1.5rem;
+    }
+
+    .amount {
+        height: 40px;
+    }
+
+    .submit_button {
+        height: 40px;
+        font-size: medium;
+    }
 }
